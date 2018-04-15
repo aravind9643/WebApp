@@ -1,5 +1,4 @@
-<div class="row">
-  <div class="col-4 offset-4">
+<div class="container"> 
   <ul class="list-group text-center">
     <li class="list-group-item font-weight-bold ">List of Names ( {{size}} ) </li>
     <li class="list-group-item" *ngFor = "let name of list" [ngClass]="{ 'text-success' : name === 'Arun' }">{{name | uppercase}}</li>
@@ -12,5 +11,4 @@
    <button class="btn btn-primary" type="submit" (click)="add()" [disabled]="!name" >Add Name</button>
   </li>
   </ul>
-</div>
-</div>
+  </div>
