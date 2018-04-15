@@ -1,5 +1,9 @@
 <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
+    <nav class="navbar navbar-expand-mg bg-dark navbar-dark text-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
         <li class="navbar-item">
                 <a  class="nav-link" routerLink="/">Home</a>
@@ -11,6 +15,7 @@
                 <a class="nav-link" routerLink="baseconverter">Converter</a>
         </li>
     </ul>
+    </div>
     </nav>
     </div>
     <router-outlet></router-outlet>
