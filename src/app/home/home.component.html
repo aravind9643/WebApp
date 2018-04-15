@@ -1,6 +1,5 @@
-<div class="container"> 
-  <ul class="list-group text-center">
-    <li class="list-group-item font-weight-bold ">List of Names ( {{size}} ) </li>
+<ul class="list-group text-center">
+    <li class="list-group-item font-weight-bold ">List of Laguages ( {{size}} ) </li>
     <li class="list-group-item" *ngFor = "let name of list" [ngClass]="{ 'text-success' : name === 'Arun' }">{{name | uppercase}}</li>
     <li class="list-group-item" [hidden]="removing">
       <button type="submit" class="btn btn-success" (click)="addMore()" >Add More</button>
@@ -8,7 +7,6 @@
       <li class="list-group-item" *ngIf="adding">
     <input type="text" class="form-control" [(ngModel)]="name">
     <br>
-   <button class="btn btn-primary" type="submit" (click)="add()" [disabled]="!name" >Add Name</button>
+   <button class="btn btn-primary" type="submit" (click)="add()" [disabled]="!name" >Add</button>
   </li>
   </ul>
-  </div>
