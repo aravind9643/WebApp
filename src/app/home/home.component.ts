@@ -29,4 +29,8 @@ export class HomeComponent implements OnInit {
     this.adding = !this.adding;
     this.removing = !this.removing;
   }
+  remove(i) {
+    this.list.splice(i, 1);
+    this.size = this.list.length;
+  }
 }
