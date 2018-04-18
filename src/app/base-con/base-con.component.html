@@ -1,16 +1,18 @@
 
+      <form [formGroup]="form"> 
       <li class="list-group-item font-weight-bold text-center">BaseConverter</li>
       <ul class="list-group">
         <li class="list-group-item">
-          <input class="form-control" type="text" placeholder="Decimal" name="decimal">
+          <input class="form-control" type="text" placeholder="Decimal" name="decimal" formControlName = "decimal" (ngModelChange)="decimalChanged(value=$event)">
         </li>
         <li class="list-group-item">
-            <input class="form-control" type="text" placeholder="Binary" name="binary">
+            <input class="form-control" type="text" placeholder="Binary" name="binary" formControlName = "binary" (ngModelChange)="binaryChanged(value=$event)">
           </li>
           <li class="list-group-item">
-              <input class="form-control" type="text" placeholder="Octal" name="octal">
+              <input class="form-control" type="text" placeholder="Octal" name="octal" formControlName = "octal" (ngModelChange)="octalChanged(value=$event)">
             </li>
             <li class="list-group-item">
-                <input class="form-control" type="text" placeholder="Hexa" name="hexa">
+                <input class="form-control" type="text" placeholder="Hexa" name="hexa" formControlName = "hexa" (ngModelChange)="hexaChanged(value=$event)">
               </li>
       </ul>
+      </form>
