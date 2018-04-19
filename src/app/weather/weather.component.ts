@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Jsonp } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -8,15 +8,36 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  country;
-  constructor(private http: Http) {
-    http.get('http://battuta.medunes.net/api/country/all/?key=9d03cceb79420a1898b6ba5055b69cf2')
-    .map(res => res.json())
-    .subscribe(country => this.country = name);
-   }
-
+  temp: number;
+  name: string;
+  humidity: number;
+  weather: {};
+  icon: string;
+  pressure: number;
+  speed: number;
+  longitude;
+  latitude;
+  hide;
+  constructor(private jsonp: Jsonp) {
+      }
   ngOnInit() {
-  }
+      navigator.geolocation.getCurrentPosition(position => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      });
 
-
+}
+setWeather() {
+  // tslint:disable-next-line:max-line-length
+  this.jsonp.get('http://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' + this.longitude + '&appid=83a004a4e9841d7258c25e987aba9c88&callback=JSONP_CALLBACK')
+  .subscribe(data => {
+    this.temp = data.json().main.temp - 273.15;
+    this.name = data.json().name;
+    this.humidity = data.json().main.humidity;
+    this.weather = data.json().weather;
+    this.speed = data.json().wind.speed;
+    this.pressure = data.json().main.pressure;
+     });
+     this.hide = !this.hide;
+}
 }

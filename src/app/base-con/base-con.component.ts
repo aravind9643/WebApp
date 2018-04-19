@@ -10,6 +10,7 @@ export class BaseConComponent implements OnInit {
   b = 0;
   o = 0;
   h = 0;
+  value = '';
   form;  constructor() {
    }
   ngOnInit() {

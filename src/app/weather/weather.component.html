@@ -1,5 +1,17 @@
-<form class = "form-group">
-  <select class="form-control">
-    <option value="{{country}}">{{country}}</option>
-  </select>
-</form>
+<div class="form-group" *ngIf="!name">
+      <input class="form-control" placeholder="Latitude" type="text" name="latitude" [(ngModel)]="latitude" >
+      <br>
+      <input class="form-control" placeholder="Longitude" type="text" name="longitude" [(ngModel)]="longitude" >
+      <br>
+      <button class="btn btn-primary center_btn" type="submit" (click)="setWeather()">Get weather</button>
+  </div>
+<div class="jumbotron" *ngIf="name">
+<h1 class="text-center">{{name}}</h1><br>
+<ul class="list-group">
+  <li class="list-group-item"><b>Temperature:</b>  {{temp}} °C</li>
+  <li class="list-group-item"><b>Humidity:</b>  {{humidity}} %</li>
+  <li class="list-group-item" *ngFor="let w of weather"><b>Description:</b>  {{w.description}} <img src="http://openweathermap.org/img/w/{{w.icon}}.png"></li>
+  <li class="list-group-item"><b>Pressure:</b>  {{pressure}} hPa</li>
+  <li class="list-group-item"><b>Speed:</b>  {{speed}} m/s</li>
+</ul>
+</div>
