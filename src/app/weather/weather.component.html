@@ -1,13 +1,9 @@
-<div class="form-group">
-      <h3>Enter City Name</h3>
-      <br>
-      <input class="form-control" placeholder="Enter City" type="text" name="city" [(ngModel)]="city" >
-      <br>
-      <button class="btn btn-primary" type="submit" (click)="setWeatherByCity()">Get weather</button>
-      <br>
-      <hr>
-      <button class="btn btn-primary" type="submit" (click)="setWeatherByGPS()">Get Weather at Current Location</button>
-  </div>
+<ul class="list-group text-center">
+     <li class="list-group-item"><h5>Enter City Name</h5></li>
+     <li class="list-group-item"><input class="form-control" placeholder="Enter City" type="text" name="city" [(ngModel)]="city"></li> 
+     <li class="list-group-item"><button class="btn btn-primary" type="submit" (click)="setWeatherByCity()" [disabled]="!city">Submit</button></li>
+     <li class="list-group-item"><button class="btn btn-primary" type="submit" (click)="setWeatherByGPS()">Get Weather at Current Location</button></li>
+</ul>
 <div class="jumbotron" *ngIf="name">
 <h1 class="text-center">{{name}}</h1><br>
 <ul class="list-group">

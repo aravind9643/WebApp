@@ -44,7 +44,6 @@ setWeatherByGPS() {
     }
 }
 setWeatherByCity() {
-  if (this.city !== undefined) {
     // tslint:disable-next-line:max-line-length
   this.jsonp.get('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=83a004a4e9841d7258c25e987aba9c88&callback=JSONP_CALLBACK')
   .subscribe(data => {
@@ -55,8 +54,5 @@ setWeatherByCity() {
     this.speed = data.json().wind.speed;
     this.pressure = data.json().main.pressure;
      });
-    } else {
-      alert('Enter City Name');
-    }
 }
 }
