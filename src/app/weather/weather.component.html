@@ -1,9 +1,12 @@
-<div class="form-group" *ngIf="!name">
-      <input class="form-control" placeholder="Latitude" type="text" name="latitude" [(ngModel)]="latitude" >
+<div class="form-group">
+      <h3>Enter City Name</h3>
       <br>
-      <input class="form-control" placeholder="Longitude" type="text" name="longitude" [(ngModel)]="longitude" >
+      <input class="form-control" placeholder="Enter City" type="text" name="city" [(ngModel)]="city" >
       <br>
-      <button class="btn btn-primary btn-lg" type="submit" (click)="setWeather()">Get weather</button>
+      <button class="btn btn-primary" type="submit" (click)="setWeatherByCity()">Get weather</button>
+      <br>
+      <hr>
+      <button class="btn btn-primary" type="submit" (click)="setWeatherByGPS()">Get Weather By Current Location</button>
   </div>
 <div class="jumbotron" *ngIf="name">
 <h1 class="text-center">{{name}}</h1><br>
