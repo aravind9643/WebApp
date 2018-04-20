@@ -32,7 +32,7 @@ setWeatherByGPS() {
   // tslint:disable-next-line:max-line-length
   this.jsonp.get('http://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' + this.longitude + '&appid=83a004a4e9841d7258c25e987aba9c88&callback=JSONP_CALLBACK')
   .subscribe(data => {
-    this.temp = data.json().main.temp - 273.15;
+    this.temp = (data.json().main.temp - 273.15).toPrecision(4);
     this.name = data.json().name;
     this.humidity = data.json().main.humidity;
     this.weather = data.json().weather;
@@ -48,7 +48,7 @@ setWeatherByCity() {
     // tslint:disable-next-line:max-line-length
   this.jsonp.get('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=83a004a4e9841d7258c25e987aba9c88&callback=JSONP_CALLBACK')
   .subscribe(data => {
-    this.temp = (data.json().main.temp - 273.15).toFixed(3);
+    this.temp = (data.json().main.temp - 273.15).toPrecision(4);
     this.name = data.json().name;
     this.humidity = data.json().main.humidity;
     this.weather = data.json().weather;
